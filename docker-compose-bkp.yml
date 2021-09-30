@@ -1,0 +1,35 @@
+version: "2"
+services:
+  db:
+    image: "postgres:9.4"
+    environment:
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo
+      - POSTGRES_DB=postgres
+    restart: always
+    volumes:
+      - "./postgresql:/var/lib/postgresql/data"
+  pgadmin:
+    image: dpage/pgadmin4
+    depends_on:
+      - db
+    ports:
+      - "5555:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: pgadmin4@pgadmin.org
+      PGADMIN_DEFAULT_PASSWORD: admin
+    volumes:
+      - "./pgadmin:/var/lib/pgadmin"
+  odoo13:
+    image: "odoo:10.0"
+    depends_on:
+      - db
+    ports:
+      - "8069:8069"
+    tty: true
+    command: "-- --dev=reload"
+    volumes:
+      - "./addons:/mnt/extra-addons"
+      - "./enterprise:/mnt/enterprise-addons"
+      - "./config:/etc/odoo"
+    restart: always

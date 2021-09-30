@@ -1,0 +1,18 @@
+<odoo>
+    <record id="view_form_room" model="ir.ui.view">
+        <field name="name">Room Manager Form</field>
+        <field name="model">room.assign</field>
+        <field name="arch" type="xml">
+            <form string="Room Manager">
+                <group>
+                    <field name="in_room" />
+                    <field name="customer"  />
+                    <field name="from_" />
+                    <field name="to_" />
+                    <field name="personal_id" />
+                    <field name="equipments" />
+                </group>
+            </form>
+        </field>
+    </record>
+</odoo>

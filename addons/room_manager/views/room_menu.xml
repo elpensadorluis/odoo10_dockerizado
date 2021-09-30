@@ -1,0 +1,10 @@
+<odoo>
+  <act_window id="action_room"
+              name="Room Manager"
+              res_model="room.assign"
+              view_mode="kanban,list,form" />
+
+  <menuitem id="menu_room"
+            name="Room"
+            action="action_room" />
+</odoo>
