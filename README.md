@@ -1,4 +1,5 @@
 # odoo10_dockerizado
+Versión 10 de Odoo corriendo dentro de un contenedor Docker junto a postgres 9.5 gracias a docker-compose.
 ## Requerimientos previos
 Requiere tener instalado Docker y Docker-compose 
 
